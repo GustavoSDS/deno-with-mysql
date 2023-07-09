@@ -4,8 +4,9 @@ export async function createUser({ request, response }: any) {
   try {
     const body = await request.body();
     const user = await body.value;
-    
-    if (user) {
+    const { name, country } = user;
+    const valType = typeof name === "string" && typeof country === "string";
+    if (name && country && valType) {
       await insert(user);
 
       response.status = 201;
@@ -18,7 +19,7 @@ export async function createUser({ request, response }: any) {
     response.status = 400;
     response.body = {
       success: false,
-      message: "No user created",
+      message: "User name and country are required. Shoud type of string",
     };
   } catch (error) {
     console.log(error);
