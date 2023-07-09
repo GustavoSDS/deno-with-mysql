@@ -1,0 +1,26 @@
+### Obteniendo todos los usuarios
+GET http://localhost:3000/users
+
+### Obteniendo usuario por id
+GET http://localhost:3000/users/10
+
+### Creando usuarios
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Rocio",
+  "country": "PY"
+}
+
+### Eliminando un usuario
+DELETE http://localhost:3000/users/13
+
+### Actualizando un usuario
+PUT http://localhost:3000/users/2
+Content-Type: application/json
+
+{
+  "name": "Jonh Salchichon",
+  "country": "AR"
+}
